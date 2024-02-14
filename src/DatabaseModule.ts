@@ -2,6 +2,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MikroOrmModule } from '@mikro-orm/nestjs';
+import { PostgreSqlDriver } from '@mikro-orm/postgresql';
  
 @Module({
   imports: [
@@ -14,10 +15,8 @@ import { MikroOrmModule } from '@mikro-orm/nestjs';
         password: configService.get('DB_PASS'),
         host: configService.get('DB_HOST'),
         port: configService.get('DB_PORT'),
-        type: 'postgresql',
+        driver: PostgreSqlDriver,
         autoLoadEntities: true,
-        entities: ['dist/**/*.entity.js'],
-        entitiesTs: ['src/**/*.entity.ts'],
       }),
     }),
   ],
