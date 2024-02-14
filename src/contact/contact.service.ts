@@ -11,13 +11,13 @@ export class ContactService {
   ) {}
 
   findAll(): Promise<Contact[]> {
-    return this.contactRepository.findAll({
-      populate: ['addresses'],
-    });
+    return this.contactRepository.findAll();
   }
 
   findOne(id: number): Promise<Contact> {
-    return this.contactRepository.findOne(id);
+    return this.contactRepository.findOne(id, {
+      populate: ['addresses'],
+    });
   }
 
   async remove(id: number): Promise<void> {
