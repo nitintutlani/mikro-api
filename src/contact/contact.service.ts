@@ -11,7 +11,9 @@ export class ContactService {
   ) {}
 
   findAll(): Promise<Contact[]> {
-    return this.contactRepository.findAll();
+    return this.contactRepository.findAll({
+      populate: ['addresses'],
+    });
   }
 
   findOne(id: number): Promise<Contact> {
