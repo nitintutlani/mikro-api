@@ -28,7 +28,7 @@ export class ContactService {
   }
 
   async update(id: number, contact: Contact): Promise<Contact> {
-    await this.contactRepository.nativeUpdate({id}, contact);
+    await this.contactRepository.nativeUpdate({ id }, contact);
     return this.contactRepository.findOne(id);
   }
 }
