@@ -15,7 +15,9 @@ export class ContactService {
   }
 
   findOne(id: number): Promise<Contact> {
-    return this.contactRepository.findOne(id);
+    return this.contactRepository.findOne(id, {
+      populate: ['addresses'],
+    });
   }
 
   async remove(id: number): Promise<void> {

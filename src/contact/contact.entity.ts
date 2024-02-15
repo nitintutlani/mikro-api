@@ -5,8 +5,10 @@ import {
   PrimaryKey,
   Property,
 } from '@mikro-orm/core';
-import { Address } from '../address/address.entity';
+import { Address } from './address/address.entity';
+import { Global } from '@nestjs/common';
 
+@Global()
 @Entity()
 export class Contact {
   @PrimaryKey()
